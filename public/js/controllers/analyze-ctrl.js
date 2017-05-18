@@ -10,7 +10,7 @@ define(['./index'], function (controllers) {
 
             $scope.analyzing = true;
             apiService.analyzeSymbol(symbol).then(function(data) {
-                $rootScope.analysisData = data;
+                $rootScope.analysisData = data.data;
                 $scope.analyzing = false;
                 $scope.analyzed = true;
                 $location.path('/results');

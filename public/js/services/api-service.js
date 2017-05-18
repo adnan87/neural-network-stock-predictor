@@ -7,9 +7,10 @@ define(['./index'], function (services) {
 		analyzeSymbol: function(symbol) {
 			var deferred = $q.defer();
 
-			$http.get(this.apiPath + 'analyze/' + symbol).success(function(data) {
+			$http.get(this.apiPath + 'analyze/' + symbol).then(function(data) {
 				deferred.resolve(data);
-			}).error(function(err, status) {
+			}, function(err, status) {
+				console.log("inside error")
 				deferred.reject(err, status);
 			});
 
